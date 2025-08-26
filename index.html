@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Payoo Mobile Banking App</title>
+    <link rel="shortcut icon" href="./images/payoo.png" type="image/x-icon">
+
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="outfit-body-font antialiased">
+
+    <div class="payoo-login-page flex flex-col items-center justify-center h-screen w-[400px] mx-auto">
+        <div class="absolute bg-[#f4f5f7] -z-1 rounded-[80px]"><img src="./images/iphone.png" alt=""></div>
+        <div class="w-full px-12">
+            <div class="login-top bg-[url(./images/bg.png)] bg-no-repeat bg-cover flex justify-center items-center h-32">
+                <img class="w-20 h-20" src="./images/payoo.png" alt="Logo">
+            </div>
+        </div>
+        <div id="show-error"></div>
+        <div class="p-8 w-full">
+            <form class="bg-white p-8 rounded-2xl box-border">
+                <div class="flex flex-col">
+                    <label class="text-[#080808] text-base font-medium" for="mobile-number">Mobile Number</label>
+                    <input type="number" id="login-mobile-number" class="my-2 p-4 rounded-full bg-[#f4f5f7] border-none placeholder:font-light focus-visible:outline-0" type="text" placeholder="Enter your number" />
+                </div>
+                <div class="flex flex-col">
+                    <label class="text-[#080808] text-base font-medium" for="pin-number">4 Digit Pin</label>
+                    <input type="number" id="login-pin-number" class="my-2 p-4 rounded-full bg-[#f4f5f7] border-none placeholder:font-light focus-visible:outline-0" type="text" placeholder="Enter 4 Digit Pin" />
+                </div>
+                <button id="login-btn" class="btn bg-[#0874f2] text-white w-full rounded-full p-7 text-xl font-medium mt-4 border-none">Login</button>
+            </form>
+        </div>
+        <div class="opacity-50 text-center">
+            <p>Mobile: 12345678910</p>
+            <p>PIN: 1234</p>
+        </div>
+    </div>
+
+    <script src="./script.js"></script>
+</body>
+</html>

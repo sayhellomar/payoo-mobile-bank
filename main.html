@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payoo - Manage everything from on place!</title>
+    <link rel="shortcut icon" href="./images/payoo.png" type="image/x-icon">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="outfit-body-font antialiased">
+
+    <div class="payoo-login-page grid items-center h-screen w-[400px] mx-auto">
+        <div class="absolute -z-1 rounded-[90px] bg-[#f4f5f7]"><img src="./images/iphone.png" alt=""></div>
+        <div class="payoo-container h-[800px] overflow-auto rounded-[90px]">
+
+            <div class="pt-8 mt-14 mx-4 relative z-2">
+                <div class="flex justify-between items-center w-full px-3 pb-2 border-b border-[#0808081a]">
+                    <div class="flex items-center gap-3">
+                        <img class="w-16 h-16" src="./images/payoo.png" alt="Logo">
+                        <div>
+                            <h4 class="font-bold text-lg">$<span id="available-balance">45000</span></h4>
+                            <p class="text-[#08080880]">Available Balance</p>
+                        </div>
+                    </div>
+                    <div>
+                        <button id="logout-btn" class="btn border-1 border-[#0808081a] text-[#08080880] font-normal text-sm rounded-lg bg-white">
+                            <span class="rotate-180"><i class="fa-solid fa-arrow-right-from-bracket"></i></span>
+                            Log Out
+                        </button>
+                    </div>
+                </div>
+
+                <div class="px-3 py-6 bg-white rounded-br-2xl rounded-bl-2xl">
+                    <h1 class="text-2xl text-[#080808] font-medium">🔥 Welcome to Payooo!</h1>
+                    <p class="text-[#08080880] mt-3">Enjoy easy and convenient financial services with us. Cashout charge is low and </p>
+                    <div class="grid grid-cols-3 gap-2 mt-6">
+                        <div id="add-money-box" class="box border border-[#0808081a] rounded-lg px-1 py-4 text-center cursor-pointer">
+                            <img class="mx-auto" src="./images/wallet1.png" alt="Add Money">
+                            <p class="text-sm text-[#080808b3] mt-2">Add Money</p>
+                        </div>
+                        <div id="cashout-box" class="box border border-[#0808081a] rounded-lg px-1 py-4 text-center cursor-pointer">
+                            <img class="mx-auto" src="./images/send1.png" alt="Cashout">
+                            <p class="text-sm text-[#080808b3] mt-2">Cashout</p>
+                        </div>
+                        <div id="transfer-money-box" class="box border border-[#0808081a] rounded-lg px-1 py-4 text-center cursor-pointer">
+                            <img class="mx-auto" src="./images/money1.png" alt="Transfer Money">
+                            <p class="text-sm text-[#080808b3] mt-2">Transfer Money</p>
+                        </div>
+                        <div id="get-bonus-box" class="box border border-[#0808081a] rounded-lg px-1 py-4 text-center cursor-pointer">
+                            <img class="mx-auto" src="./images/bonus1.png" alt="Get Bonus">
+                            <p class="text-sm text-[#080808b3] mt-2">Get Bonus</p>
+                        </div>
+                        <div id="pay-bill-box" class="box border border-[#0808081a] rounded-lg px-1 py-4 text-center cursor-pointer">
+                            <img class="mx-auto" src="./images/purse1.png" alt="Pay Bill">
+                            <p class="text-sm text-[#080808b3] mt-2">Pay Bill</p>
+                        </div>
+                        <div id="transaction-box" class="box border border-[#0808081a] rounded-lg px-1 py-4 text-center cursor-pointer">
+                            <img class="mx-auto" src="./images/wallet1.png" alt="Transactions">
+                            <p class="text-sm text-[#080808b3] mt-2">Transactions</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="px-3 py-8 mx-4">
+
+                <div id="show-error"></div>
+
+                <div id="add-money" class="form-wrapper" style="display: none;">
+                    <h3 class="text-lg font-semibold">Add Money</h3>
+                    <form class="bg-white p-4 rounded-3xl mt-4">
+                        <fieldset class="fieldset">
+                            <legend class="fieldset-legend text-[#080808b3] text-base font-medium" for="select-bank">Select A Bank</legend>
+                            <select id="add-select-bank" class="select rounded-full bg-[#f4f5f7] border-none focus:outline-0 border-0 placeholder:font-light">
+                                <option disabled selected>Select bank</option>
+                                <option>AIBL</option>
+                                <option>AB Bank</option>
+                                <option>City Bank</option>
+                                <option>IFIC</option>
+                            </select>
+                        </fieldset>
+
+                        <div class="flex flex-col mt-3">
+                            <label class="text-[#080808b3] text-base font-medium" for="mobile-number">Mobile Number</label>
+                            <input id="add-mobile-number" type="number" class="my-2 p-3 rounded-full bg-[#f4f5f7] border-none placeholder:font-light focus-visible:outline-0" type="text" placeholder="Enter 11 digit account number" />
+                        </div>
+
+                        <div class="flex flex-col mt-3">
+                            <label class="text-[#080808b3] text-base font-medium" for="mobile-number">Amount to Add</label>
+                            <input id="add-amount" type="number" class="my-2 p-3 rounded-full bg-[#f4f5f7] border-none placeholder:font-light focus-visible:outline-0" type="text" placeholder="Add Amount to add money" />
+                        </div>
+
+                        <div class="flex flex-col mt-3">
+                            <label class="text-[#080808b3] text-base font-medium" for="mobile-number">Pin Number</label>
+                            <input id="add-pin-number" type="number" class="my-2 p-3 rounded-full bg-[#f4f5f7] border-none placeholder:font-light focus-visible:outline-0" type="text" placeholder="Enter 4 digit pin number" />
+                        </div>
+
+                        <button id="add-money-btn" class="btn bg-[#0874f2] text-white w-full rounded-full p-7 text-xl font-medium mt-3 border-none">Add Money</button>
+                    </form>
+                </div><!-- #add-money -->
+
+                <div id="cash-out"  class="form-wrapper" style="display: none;">
+                    <h3 class="text-lg font-semibold">Cash Out</h3>
+                    <form class="bg-white p-4 rounded-3xl mt-4">
+
+                        <div class="flex flex-col mt-3">
+                            <label class="text-[#080808b3] text-base font-medium" for="cashout-agent-number">Agent Number</label>
+                            <input id="cashout-agent-number" class="my-2 p-3 rounded-full bg-[#f4f5f7] border-none placeholder:font-light focus-visible:outline-0" type="text" placeholder="Enter 11 digit number" />
+                        </div>
+
+                        <div class="flex flex-col mt-3">
+                            <label class="text-[#080808b3] text-base font-medium" for="cashout-amount">Amount</label>
+                            <input id="cashout-amount" class="my-2 p-3 rounded-full bg-[#f4f5f7] border-none placeholder:font-light focus-visible:outline-0" type="text" placeholder="Enter amount to withdraw" />
+                        </div>
+
+                        <div class="flex flex-col mt-3">
+                            <label class="text-[#080808b3] text-base font-medium" for="cashout-pin-number">Pin Number</label>
+                            <input id="cashout-pin-number" class="my-2 p-3 rounded-full bg-[#f4f5f7] border-none placeholder:font-light focus-visible:outline-0" type="text" placeholder="Enter 4 digit pin number" />
+                        </div>
+
+                        <button id="cash-out-btn" class="btn bg-[#0874f2] text-white w-full rounded-full p-7 text-xl font-medium mt-3 border-none">Withdraw Money</button>
+                    </form>
+                </div><!-- #Cash-out -->
+
+                <div id="transfer-money"  class="form-wrapper" style="display: none;">
+                    <h3 class="text-lg font-semibold">Transfer Money</h3>
+                    <form class="bg-white p-4 rounded-3xl mt-4">
+
+                        <div class="flex flex-col mt-3">
+                            <label class="text-[#080808b3] text-base font-medium" for="transfer-account-number">User Account Number</label>
+                            <input id="transfer-account-number" class="my-2 p-3 rounded-full bg-[#f4f5f7] border-none placeholder:font-light focus-visible:outline-0" type="text" placeholder="Enter 11 digit number" />
+                        </div>
+
+                        <div class="flex flex-col mt-3">
+                            <label class="text-[#080808b3] text-base font-medium" for="transfer-amount">Amount</label>
+                            <input id="transfer-amount" class="my-2 p-3 rounded-full bg-[#f4f5f7] border-none placeholder:font-light focus-visible:outline-0" type="text" placeholder="Enter amount to transfer" />
+                        </div>
+
+                        <div class="flex flex-col mt-3">
+                            <label class="text-[#080808b3] text-base font-medium" for="transfer-pin-number">Pin Number</label>
+                            <input id="transfer-pin-number" class="my-2 p-3 rounded-full bg-[#f4f5f7] border-none placeholder:font-light focus-visible:outline-0" type="text" placeholder="Enter 4 digit pin number" />
+                        </div>
+
+                        <button id="transfer-money-btn" class="btn bg-[#0874f2] text-white w-full rounded-full p-7 text-xl font-medium mt-3 border-none">Send Now</button>
+                    </form>
+                </div><!-- #transfer-money -->
+
+                <div id="get-bonus" class="form-wrapper" style="display: none;">
+                    <h3 class="text-lg font-semibold">Get Bonus</h3>
+                    <p class="text-[#08080880]">Use code <span class="font-bold">PAYOO1000</span> to get bonus 1000 USD.</p>
+                    <form class="bg-white p-4 rounded-3xl mt-4">
+
+                        <div class="flex flex-col mt-3">
+                            <label class="text-[#080808b3] text-base font-medium" for="bonus-coupon">Enter Bonus Coupon</label>
+                            <input id="bonus-coupon" class="my-2 p-3 rounded-full bg-[#f4f5f7] border-none placeholder:font-light focus-visible:outline-0" type="text" placeholder="Enter your coupon" />
+                        </div>
+
+                        <button id="get-bonus-btn" class="btn bg-[#0874f2] text-white w-full rounded-full p-7 text-xl font-medium mt-3 border-none">Get Bonus</button>
+                    </form>
+                </div><!-- #get-bonus -->
+
+                <div id="pay-bill"  class="form-wrapper" style="display: none;">
+                    <h3 class="text-lg font-semibold">Pay Bill</h3>
+                    <form class="bg-white p-4 rounded-3xl mt-4">
+                        <fieldset class="fieldset">
+                            <legend class="fieldset-legend text-[#080808b3] text-base font-medium" for="select-pay-bank">Select To Pay</legend>
+                            <select id="select-pay-bank" class="select rounded-full bg-[#f4f5f7] border-none focus:outline-0 border-0 placeholder:font-light">
+                                <option disabled selected>Select bank</option>
+                                <option>AIBL</option>
+                                <option>AB Bank</option>
+                                <option>City Bank</option>
+                                <option>IFIC</option>
+                            </select>
+                        </fieldset>
+
+                        <div class="flex flex-col mt-3">
+                            <label class="text-[#080808b3] text-base font-medium" for="biller-account-number">Biller Account Number</label>
+                            <input id="biller-account-number" class="my-2 p-3 rounded-full bg-[#f4f5f7] border-none placeholder:font-light focus-visible:outline-0" type="text" placeholder="Enter account number" />
+                        </div>
+
+                        <div class="flex flex-col mt-3">
+                            <label class="text-[#080808b3] text-base font-medium" for="pay-amount">Amount to Pay</label>
+                            <input id="pay-amount" class="my-2 p-3 rounded-full bg-[#f4f5f7] border-none placeholder:font-light focus-visible:outline-0" type="text" placeholder="Add Amount to pay" />
+                        </div>
+
+                        <div class="flex flex-col mt-3">
+                            <label class="text-[#080808b3] text-base font-medium" for="pay-pin-number">Pin Number</label>
+                            <input id="pay-pin-number" class="my-2 p-3 rounded-full bg-[#f4f5f7] border-none placeholder:font-light focus-visible:outline-0" type="text" placeholder="Enter 4 digit pin number" />
+                        </div>
+
+                        <button id="pay-bill-btn" class="btn bg-[#0874f2] text-white w-full rounded-full p-7 text-xl font-medium mt-3 border-none">Add Money</button>
+                    </form>
+                </div><!-- #pay-bill -->
+
+                <div id="transaction-history" class="form-wrapper">
+                    <h3 class="text-lg font-semibold">Transaction History</h3>
+                    <div id="transaction-wrapper" class="mt-2">
+                        <p class="text-[#08080880]"">No transactions found. Please try to add or cashout or transfer money or get bonus or pay bill.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/js/all.min.js" integrity="sha512-gBYquPLlR76UWqCwD06/xwal4so02RjIR0oyG1TIhSGwmBTRrIkQbaPehPF8iwuY9jFikDHMGEelt0DtY7jtvQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="./script.js"></script>
+</body>
+</html>

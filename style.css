@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+
+
+.outfit-body-font {
+    font-family: "Outfit", sans-serif;
+}
+
+.payoo-container {
+      -ms-overflow-style: none;  /* IE and Edge */
+      scrollbar-width: none;  /* Firefox */
+}
+
+.payoo-container::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+}
