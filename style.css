@@ -5,11 +5,13 @@
     font-family: "Outfit", sans-serif;
 }
 
-.payoo-container {
-      -ms-overflow-style: none;  /* IE and Edge */
-      scrollbar-width: none;  /* Firefox */
-}
+@media only screen and(max-width: 1280px) {
+    .payoo-container {
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
+    }
 
-.payoo-container::-webkit-scrollbar {
-    display: none; /* Chrome, Safari, Opera */
+    .payoo-container::-webkit-scrollbar {
+        display: none; /* Chrome, Safari, Opera */
+    }
 }
